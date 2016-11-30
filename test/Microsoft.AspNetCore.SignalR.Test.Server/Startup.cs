@@ -25,6 +25,10 @@ namespace Microsoft.AspNetCore.SignalR.Test.Server
 
             app.UseStaticFiles();
             app.UseSockets(options => options.MapEndpoint<EchoEndPoint>("/echo"));
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<TestHub>("/testhub");
+            });
         }
     }
 }
